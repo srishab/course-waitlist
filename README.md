@@ -4,6 +4,36 @@
 
 A small Java 21 and Maven prototype for managing enrollment in one course offering. It uses an in-memory service, a configurable capacity, a single course prerequisite, and a FIFO waitlist.
 
+## Technology used
+
+- **Java 21** for the application source and target compatibility.
+- **Maven** for dependency management and build tasks.
+- **JUnit 5.11.4** for automated tests.
+- **Java standard library** collections and `ReentrantLock` for in-memory state and thread-safe operations. No database or application framework is used.
+
+## Project structure
+
+```text
+course-waitlist/
+├── pom.xml                         # Maven configuration and dependencies
+├── README.md                       # Setup, run, and project guide
+├── DESIGN.md                       # Architecture and design decisions
+├── AI_USAGE.md                     # AI prompts, decisions, and verification notes
+├── LIMITATIONS.md                  # Current limitations and possible improvements
+└── src/
+    ├── main/java/org/practise/
+    │   ├── Main.java               # Console demonstration entry point
+    │   ├── model/
+    │   │   ├── CourseOffering.java  # Course ID, prerequisite, and capacity
+    │   │   ├── Learner.java         # Learner ID and completed-course snapshot
+    │   │   ├── EnrollmentResult.java
+    │   │   └── DropResult.java
+    │   └── service/
+    │       └── CourseWaitlistService.java # Enrollment, drops, and promotion
+    └── test/java/org/practise/service/
+        └── CourseWaitlistServiceTest.java # JUnit 5 behavior and invariant tests
+```
+
 ## Prerequisites
 
 - IntelliJ IDEA with a Java 21 JDK configured as the Project SDK.
